@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/caseListFragment"
+        android:icon="@drawable/ic_list"
+        android:title="@string/Cases" />
+    <item
+        android:id="@id/caseListFragment"
+        android:icon="@drawable/ic_list"
+        android:title="@string/Cases" />
+</menu>

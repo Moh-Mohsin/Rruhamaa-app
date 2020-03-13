@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="net.ruhamaa.mobile.ui.login.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/toVerifyFragment"
+            app:destination="@id/verifyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyFragment"
+        android:name="net.ruhamaa.mobile.ui.verify.VerifyFragment"
+        android:label="verify_fragment"
+        tools:layout="@layout/verify_fragment" >
+        <argument
+            android:name="phoneNum"
+            app:argType="string" />
+        <action
+            android:id="@+id/toCaseListFragment"
+            app:destination="@id/caseListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/caseListFragment"
+        android:name="net.ruhamaa.mobile.ui.cases.CaseListFragment"
+        android:label="case_list_fragment"
+        tools:layout="@layout/case_list_fragment" />
+</navigation>
