@@ -1,5 +1,6 @@
 package net.ruhamaa.mobile.data.source.remote
 
+import kotlinx.coroutines.delay
 import net.ruhamaa.mobile.data.model.Case
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
@@ -8,12 +9,20 @@ import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.source.RuhamaDataSource
 
 class FakeRemoteDataSource : RuhamaDataSource {
-    override suspend fun login(phoneNum: String) =
-        successEmpty()
+    override suspend fun login(phoneNum: String): Result.Success<Empty> {
+        delay(DELAY_IN_MS)
+        return successEmpty()
+    }
 
-    override suspend fun verify(phoneNum: String, code: String) = Result.Success(User(phoneNum))
+    override suspend fun verify(phoneNum: String, code: String): Result.Success<User> {
+        delay(DELAY_IN_MS)
+        return Result.Success(User(phoneNum))
+    }
 
-    override suspend fun forgotPassword(phoneNum: String) = Result.Success(Empty())
+    override suspend fun forgotPassword(phoneNum: String): Result.Success<Empty> {
+        delay(DELAY_IN_MS)
+        return Result.Success(Empty())
+    }
 
     override suspend fun updateProfile(user: User): Result<User> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -25,6 +34,9 @@ class FakeRemoteDataSource : RuhamaDataSource {
 
     override suspend fun updateCase(case: Case) =
         successEmpty()
+    companion object {
+        const val DELAY_IN_MS = 500L
+    }
 }
 
 fun successEmpty() = Result.Success(Empty())
