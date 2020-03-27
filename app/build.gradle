@@ -110,12 +110,12 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
-    implementation "androidx.room:room-runtime:$roomVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 //    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Kotlin
