@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -29,26 +30,35 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id) {
-                in appBarConfiguration.topLevelDestinations -> {
-                    showActionBar()
-                    showNav()
-                }
-                R.id.loginFragment, R.id.verifyFragment -> {
-                    hideActionBar()
-                    hideNav()
-                }
-                else -> {
-                    showActionBar()
-                    hideNav()
-                }
-            }
+            handleDestinationChange(destination)
         }
         nav_view.setupWithNavController(navController)
         if (BuildConfig.DEBUG) {
             showAppSignature()
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        navController.currentDestination?.let { handleDestinationChange(it) }
+    }
+
+    private fun handleDestinationChange(destination: NavDestination) {
+        when (destination.id) {
+            in appBarConfiguration.topLevelDestinations -> {
+                showActionBar()
+                showNav()
+            }
+            R.id.loginFragment, R.id.verifyFragment -> {
+                hideActionBar()
+                hideNav()
+            }
+            else -> {
+                showActionBar()
+                hideNav()
+            }
+        }
     }
 
     private fun buildAppBarConfiguration(): AppBarConfiguration {
@@ -64,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavigationDrawer() {
-        drawer_layout.setStatusBarBackground(R.color.colorPrimaryDark)
+        drawer_layout.setStatusBarBackground(R.color.primaryDarkColor)
     }
 
 

@@ -1,42 +1,79 @@
-<resources>
-    <style name="AppTheme" parent="Base.AppTheme" />
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme.OverlapSystemBar" parent="Base.AppTheme" />
 
-    <style name="Base.AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.Ruhamaa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/green</item>
+        <item name="colorSecondary">@color/orange</item>
+        <item name="colorSecondaryVariant">@color/orange</item>
+
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
         <item name="android:windowBackground">@drawable/background</item>
 
-        <item name="textAppearanceBody1">@style/body1</item>
-        <item name="textAppearanceHeadline1">@style/Headline1</item>
+        <!--Material shape attributes-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Ruhamaa.SmallComponent</item>
+<!--        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Ruhamaa.MediumComponent</item>-->
+<!--        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Ruhamaa.LargeComponent</item>-->
 
+        <!--Material type attributes-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Ruhamaa.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Ruhamaa.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Ruhamaa.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Ruhamaa.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Ruhamaa.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Ruhamaa.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Ruhamaa.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Ruhamaa.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Ruhamaa.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Ruhamaa.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Ruhamaa.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Ruhamaa.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Ruhamaa.Overline</item>
+
+        
     </style>
-    
-    <style name="AppTheme.Login" parent="AppTheme">
+
+    <style name="Ruhamaa" parent="Base.Ruhamaa" />
+<!--    <style name="Ruhamaa.OverlapSystemBar" parent="Base.Ruhamaa" />-->
+
+    <style name="Ruhamaa.Orange" >
+
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/orange</item>
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/green</item>
+
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorOnSurface">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:textColorTertiary">@color/white</item>
         <item name="android:editTextColor">@color/white</item>
 
-        <item name="android:textColorPrimaryInverse">@color/white</item>
-        <item name="android:textColorSecondaryInverse">@color/white</item>
-        <item name="android:textColorTertiaryInverse">@color/white</item>
+        <item name="materialButtonOutlinedStyle">@style/Button.Ruhamaa.Big</item>
     </style>
 
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Light">
     </style>
 
-    <style name="body1" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="fontFamily">@font/main_font</item>
+    <style name="Button.Ruhamaa" parent="Widget.MaterialComponents.Button"/>
+
+    <style name="Button.Ruhamaa.Big">
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
-    <style name="Headline1" parent="TextAppearance.MaterialComponents.Headline1">
-        <item name="fontFamily">@font/main_font</item>
+
+    <style name="Ruhamaa.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <item name="boxStrokeColor">@color/text_input_box_stroke</item>-->
     </style>
+
 
 
 </resources>

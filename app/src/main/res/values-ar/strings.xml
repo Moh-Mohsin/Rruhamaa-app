@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="phone_number">Phone Number</string>
-    <string name="login">Login</string>
+    <string name="login">تسجيل الدخول</string>
     <string name="confirmation_code">Confirmation Code</string>
     <string name="verify">Verify</string>
     <string name="ruhamaa_header_image_content_description">Ruhamaa header image</string>
     <string name="navigation_view_header_title">Ruhamaa</string>
     <string name="Cases">Cases</string>
+    <string name="content_icon">icon</string>
+    <string name="content_icon_background">icon background</string>
 </resources>
