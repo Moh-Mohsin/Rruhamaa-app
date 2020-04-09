@@ -13,37 +13,36 @@
         style="@style/Ruhamaa.TextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:hint=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="+249916393118"
             android:hint="@string/phone_number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
-        style="@style/Button.Ruhamaa.Big"
         android:id="@+id/login"
+        style="@style/Button.Ruhamaa.Big"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_num_cont"/>
+        app:layout_constraintEnd_toEndOf="@+id/phone_num_cont"
+        app:layout_constraintStart_toStartOf="@+id/phone_num_cont"
+        app:layout_constraintTop_toBottomOf="@+id/phone_num_cont" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -76,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Ruhamaa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
