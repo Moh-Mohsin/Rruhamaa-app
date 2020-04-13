@@ -36,7 +36,8 @@ class CaseListAdapter(private val onCaseClicked: (Case) -> Unit) :
                 val drawable = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_icon, null)!!
                 DrawableCompat.setTint(drawable, ResourcesCompat.getColor(context.resources, R.color.green, null))
                 placeholder(drawable)
-//                transformations(RoundedCornersTransformation())
+                val rnd = 5f
+                transformations(RoundedCornersTransformation(rnd, rnd, rnd, rnd))
             }
             binding.description.text = case.description
             binding.currentDonations.text =

@@ -45,9 +45,9 @@ fun successEmpty() = Result.Success(Empty())
 
 fun fakeUser() = User("+999123456789")
 
-fun fakeCase() = genFakeCase(1).single()
+fun fakeCase() = fakeCases().single()
 
-fun fakeCases() = genFakeCase(5)
+fun fakeCases() = genFakeCase2()
 
 fun genFakeCase(n: Int) = (1..n).map {
     Case(
@@ -63,3 +63,67 @@ fun genFakeCase(n: Int) = (1..n).map {
         it * 2 * 100.0
     )
 }
+
+
+fun genFakeCase2() = listOf(
+    Case(
+        "1",
+        "case 1",
+        "Feed family of 15",
+        "1/1/2020",
+        true,
+        "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg",
+        50,
+        230,
+        4000.0,
+        2430.0
+    ),
+    Case(
+        "2",
+        "case 2",
+        "Feed family of 15",
+        "10/3/2020",
+        false,
+        "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg",
+        8,
+        50,
+        500.0,
+        130.0
+    ),
+    Case(
+        "3",
+        "case 3",
+        "Feed family of 15",
+        "1/1/2020",
+        false,
+        "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg",
+        30,
+        68,
+        1650.0,
+        1500.0
+    ),
+    Case(
+        "3",
+        "case 4",
+        "Feed family of 15",
+        "1/2/2020",
+        false,
+        "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg",
+        1,
+        5,
+        850.0,
+        50.0
+    ),
+    Case(
+        "5",
+        "case 5",
+        "Feed family of 15",
+        "21/1/2020",
+        false,
+        "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg",
+        5,
+        40,
+        1650.0,
+        500.0
+    )
+)
