@@ -132,8 +132,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
     kapt "androidx.lifecycle:lifecycle-common-java8:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+    implementation "androidx.activity:activity-ktx:1.1.0"
+
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    // Image Loading
+    implementation "io.coil-kt:coil:0.9.5"
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"

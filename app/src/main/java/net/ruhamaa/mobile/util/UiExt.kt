@@ -37,3 +37,4 @@ fun Fragment.toastDebug(message: String, length: Int = Toast.LENGTH_SHORT) {
     if (BuildConfig.DEBUG)
         context?.toast(message, length)
 }
+

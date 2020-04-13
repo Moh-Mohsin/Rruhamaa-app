@@ -10,13 +10,13 @@ sealed class Result<out R> {
 
     data class Success<out T>(val data: T) : Result<T>()
     data class Error(val exception: Exception) : Result<Nothing>()
-    object Loading : Result<Nothing>()
+//    object Loading : Result<Nothing>()
 
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
             is Error -> "Error[exception=$exception]"
-            Loading -> "Loading"
+//            Loading -> "Loading"
         }
     }
 }
@@ -29,4 +29,4 @@ val Result<*>.succeeded
 
 fun <T> T.toSuccess() = Success(this)
 
-fun Result.Error.toErrorMessage() = ErrorMessage.StringMessage(exception.message ?: "Unknown error")
+fun Result.Error.toErrorMessage() = Message.Raw(exception.message ?: "Unknown error")

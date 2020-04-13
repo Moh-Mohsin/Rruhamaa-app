@@ -17,7 +17,9 @@ interface RuhamaaRepository {
 
     suspend fun updateProfile(user: User): Result<User>
 
-    suspend fun getCases(forceUpdate: Boolean): Result<List<Case>>
+    suspend fun getCases(forceUpdate: Boolean = false): Result<List<Case>>
+
+    suspend fun getCase(id: String, forceUpdate: Boolean = false): Result<Case>
 
     suspend fun addCase(case: Case): Result<Empty>
 

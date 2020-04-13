@@ -30,6 +30,10 @@ class RuhamaaRepositoryImpl(private val ruhamaDataSource: RuhamaDataSource) : Ru
         return ruhamaDataSource.getCases()
     }
 
+    override suspend fun getCase(id: String, forceUpdate: Boolean): Result<Case> {
+        return ruhamaDataSource.getCase(id)
+    }
+
     override suspend fun addCase(case: Case): Result<Empty> {
         return ruhamaDataSource.addCase(case)
     }

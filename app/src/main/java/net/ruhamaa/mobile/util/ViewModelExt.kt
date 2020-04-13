@@ -1,8 +1,6 @@
 package net.ruhamaa.mobile.util
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.*
 
 class ViewModelFactory(private val viewModelBlock: () -> ViewModel) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -20,3 +18,5 @@ inline fun <reified T : ViewModel> ViewModelStoreOwner.createViewModelFactory(no
     ViewModelFactory {
         viewModelBlock()
     }
+
+fun <T> MutableLiveData<T>.toLive() = this as LiveData<T>

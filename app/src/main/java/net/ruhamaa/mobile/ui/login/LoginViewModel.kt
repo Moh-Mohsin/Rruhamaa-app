@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.ruhamaa.mobile.Event
-import net.ruhamaa.mobile.data.ErrorMessage
+import net.ruhamaa.mobile.data.Message
 import net.ruhamaa.mobile.data.Result.*
 import net.ruhamaa.mobile.data.toErrorMessage
 import net.ruhamaa.mobile.di.KodeinInjector
@@ -22,7 +22,7 @@ class LoginViewModel : ViewModel() {
     private val _loading = MutableLiveData(false)
     val loading = _loading.readOnly()
 
-    private val _snackbarText = MutableLiveData<Event<ErrorMessage>>()
+    private val _snackbarText = MutableLiveData<Event<Message>>()
     val snackbarText = _snackbarText.readOnly()
 
     fun login(phoneNum: String){
@@ -32,7 +32,6 @@ class LoginViewModel : ViewModel() {
                 is Error -> {
                     _snackbarText.value = Event(result.toErrorMessage())
                 }
-                Loading -> {}
             }
         }
     }

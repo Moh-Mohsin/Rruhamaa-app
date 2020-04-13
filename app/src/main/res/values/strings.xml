@@ -1,12 +1,13 @@
 <resources>
-    <string name="app_name">Ruhamaa App</string>
+    <string name="app_name">Ruhamaa</string>
     <string name="phone_number">Phone Number</string>
     <string name="login">Login</string>
     <string name="confirmation_code">Confirmation Code</string>
     <string name="verify">Verify</string>
     <string name="ruhamaa_header_image_content_description">Ruhamaa header image</string>
     <string name="navigation_view_header_title">Ruhamaa</string>
-    <string name="Cases">Cases</string>
+    <string name="cases">Cases</string>
     <string name="content_icon">icon</string>
     <string name="content_icon_background">icon background</string>
+    <string name="money_amount">%1$s \n pounds</string>
 </resources>

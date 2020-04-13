@@ -1,4 +1,4 @@
-package net.ruhamaa.mobile.ui.cases
+package net.ruhamaa.mobile.ui.casedetail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,16 +8,19 @@ import net.ruhamaa.mobile.data.Message
 import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.model.Case
 import net.ruhamaa.mobile.di.KodeinInjector
-import net.ruhamaa.mobile.domain.GetCasesUseCase
+import net.ruhamaa.mobile.domain.GetCaseUseCase
 import net.ruhamaa.mobile.util.toLive
 import org.kodein.di.erased.instance
+import java.lang.IllegalStateException
 
-class CaseListViewModel : ViewModel() {
+class CaseViewModel : ViewModel() {
 
-    private val getCasesUseCase by KodeinInjector.instance<GetCasesUseCase>()
+    private val getCaseUseCase by KodeinInjector.instance<GetCaseUseCase>()
 
-    private val _cases = MutableLiveData<List<Case>>()
-    val cases = _cases.toLive()
+    private var _id: String? = null
+
+    private val _case = MutableLiveData<Case>()
+    val case = _case.toLive()
 
     private val _loading = MutableLiveData<Boolean>()
     val loading = _loading.toLive()
@@ -25,14 +28,18 @@ class CaseListViewModel : ViewModel() {
     private val _message = MutableLiveData<Message>()
     val message = _message.toLive()
 
-    fun loadCases(){
+    fun setCaseId(id: String) {
+        _id = id
+    }
+
+    fun loadCase(){
         viewModelScope.launch {
             _loading.value = true
-            val result = getCasesUseCase()
+            val result = _id?.let { getCaseUseCase(it) } ?: throw IllegalStateException("caseId not set")
             _loading.value = false
             when(result){
                 is Result.Success -> {
-                    _cases.value = result.data
+                    _case.value = result.data
                 }
                 is Result.Error -> {
                     _message.value = Message.Raw(result.exception.toString())

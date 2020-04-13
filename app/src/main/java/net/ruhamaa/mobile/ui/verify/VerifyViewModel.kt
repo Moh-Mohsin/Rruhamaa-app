@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import net.ruhamaa.mobile.Event
-import net.ruhamaa.mobile.data.ErrorMessage
+import net.ruhamaa.mobile.data.Message
 import net.ruhamaa.mobile.data.Result.*
 import net.ruhamaa.mobile.data.model.User
 import net.ruhamaa.mobile.data.toErrorMessage
@@ -23,7 +23,7 @@ class VerifyViewModel : ViewModel() {
     private val _navigateToMain = MutableLiveData<Event<User>>()
     val navigateToMain = _navigateToMain.readOnly()
 
-    private val _snackbarText = MutableLiveData<Event<ErrorMessage>>()
+    private val _snackbarText = MutableLiveData<Event<Message>>()
     val snackbarText = _snackbarText.readOnly()
 
     fun verify(phoneNum: String, code: String){
@@ -36,7 +36,6 @@ class VerifyViewModel : ViewModel() {
                 is Error -> {
                     _snackbarText.value = Event(result.toErrorMessage())
                 }
-                Loading -> {}
             }
         }
     }
