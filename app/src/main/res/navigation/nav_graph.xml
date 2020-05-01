@@ -29,6 +29,11 @@
     <fragment
         android:id="@+id/caseListFragment"
         android:name="net.ruhamaa.mobile.ui.cases.CaseListFragment"
-        android:label="case_list_fragment"
-        tools:layout="@layout/case_list_fragment" />
+        android:label="@string/case_list_fragment_label"
+        tools:layout="@layout/case_list_fragment" >
+        <action
+            android:id="@+id/toLoginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
 </navigation>

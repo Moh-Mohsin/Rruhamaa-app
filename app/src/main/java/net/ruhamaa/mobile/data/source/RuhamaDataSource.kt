@@ -6,9 +6,9 @@ import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
 
 interface RuhamaDataSource {
-    suspend fun login(phoneNum: String): Result<Empty>
-
-    suspend fun verify(phoneNum: String, code: String): Result<User>
+//    suspend fun login(phoneNum: String): Result<Empty>
+//
+//    suspend fun verify(phoneNum: String, code: String): Result<User>
 
     suspend fun forgotPassword(phoneNum: String): Result<Empty>
 

@@ -1,10 +1,17 @@
 package net.ruhamaa.mobile.di
 
+import android.content.SharedPreferences
 import kotlinx.coroutines.Dispatchers
+import net.ruhamaa.mobile.RuhamaaApplication
 import net.ruhamaa.mobile.data.repsitory.RuhamaaRepository
 import net.ruhamaa.mobile.data.repsitory.RuhamaaRepositoryImpl
+import net.ruhamaa.mobile.data.repsitory.UserRepository
+import net.ruhamaa.mobile.data.repsitory.UserRepositoryImpl
 import net.ruhamaa.mobile.data.source.RuhamaDataSource
+import net.ruhamaa.mobile.data.source.UserDataSource
+import net.ruhamaa.mobile.data.source.local.LocalUserDataSource
 import net.ruhamaa.mobile.data.source.remote.FakeRemoteDataSource
+import net.ruhamaa.mobile.data.source.remote.RemoteUserDataSource
 import net.ruhamaa.mobile.domain.GetCaseUseCase
 import net.ruhamaa.mobile.domain.GetCasesUseCase
 import net.ruhamaa.mobile.domain.LoginUseCase
@@ -31,13 +38,17 @@ val KodeinInjector = Kodein {
     /**
      * Repositories
      */
-    bind<RuhamaaRepository>() with singleton { RuhamaaRepositoryImpl(instance()) } //TODO use instance
+    bind<RuhamaaRepository>() with singleton { RuhamaaRepositoryImpl(instance()) }
+    bind<UserRepository>() with singleton { UserRepositoryImpl(instance("local"), instance("remote")) }
 
     /**
      * DataSources
      */
 //    bind<NetworkChecker>() with provider { NetworkChecker() }
-    bind<RuhamaDataSource>() with singleton { FakeRemoteDataSource() } //TODO use instance
+    bind<RuhamaDataSource>() with singleton { FakeRemoteDataSource() }
+    bind<UserDataSource>("local") with singleton { LocalUserDataSource(instance()) }
+    bind<UserDataSource>("remote") with singleton { RemoteUserDataSource() }
+    bind<SharedPreferences>() with singleton { RuhamaaApplication.sharedPreferences } // TODO: this is a hack, fix later
 
     /**
      * Network

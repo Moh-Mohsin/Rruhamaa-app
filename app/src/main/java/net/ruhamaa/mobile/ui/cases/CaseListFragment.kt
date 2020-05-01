@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import net.ruhamaa.mobile.MainActivity
 import net.ruhamaa.mobile.databinding.CaseListFragmentBinding
 import net.ruhamaa.mobile.util.toast
 
@@ -16,6 +18,7 @@ class CaseListFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: CaseListViewModel
+    private val userViewModel by lazy { (requireActivity() as MainActivity).userViewModel }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +30,11 @@ class CaseListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (userViewModel.getUser() == null){
+            val direction = CaseListFragmentDirections.toLoginFragment()
+            findNavController().navigate(direction)
+            return
+        }
         val adapter = CaseListAdapter { case ->
             toast("$case")
         }

@@ -17,6 +17,8 @@
 package net.ruhamaa.mobile
 
 import android.app.Application
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import net.ruhamaa.mobile.data.repsitory.RuhamaaRepository
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -30,11 +32,14 @@ import timber.log.Timber.DebugTree
 class RuhamaaApplication : Application() {
 
     // Depends on the flavor,
-    val ruhamaaRepository: RuhamaaRepository
-        get() = ServiceLocator.provideRuhamaRepository(this)
 
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(DebugTree())
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+    }
+    companion object {
+        lateinit var sharedPreferences: SharedPreferences
     }
 }

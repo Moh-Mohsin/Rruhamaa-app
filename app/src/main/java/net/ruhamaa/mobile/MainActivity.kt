@@ -2,10 +2,11 @@ package net.ruhamaa.mobile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
+import net.ruhamaa.mobile.ui.user.UserViewModel
 import net.ruhamaa.mobile.util.AppSignatureHelper
 import timber.log.Timber
 
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val navController by lazy { findNavController(R.id.nav_host_fragment) }
     private val appBarConfiguration by lazy { buildAppBarConfiguration() }
+    val userViewModel by lazy { ViewModelProvider(this).get(UserViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +45,22 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         navController.currentDestination?.let { handleDestinationChange(it) }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.options_menu_actions, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_logout -> {
+                userViewModel.logout()
+                navController.navigate(R.id.loginFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun handleDestinationChange(destination: NavDestination) {

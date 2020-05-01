@@ -10,4 +10,6 @@
     <string name="content_icon">icon</string>
     <string name="content_icon_background">icon background</string>
     <string name="money_amount">%1$s \n pounds</string>
+    <string name="case_list_fragment_label">Cases</string>
+    <string name="logout">Logout</string>
 </resources>

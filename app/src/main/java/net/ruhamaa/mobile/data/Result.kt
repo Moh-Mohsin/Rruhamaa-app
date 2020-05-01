@@ -30,3 +30,5 @@ val Result<*>.succeeded
 fun <T> T.toSuccess() = Success(this)
 
 fun Result.Error.toErrorMessage() = Message.Raw(exception.message ?: "Unknown error")
+
+fun <T> Result<T>.dataOrNull() = if (this is Success) data else null

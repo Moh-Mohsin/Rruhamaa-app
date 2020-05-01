@@ -62,4 +62,5 @@ ext {
     timberVersion = '4.7.1'
     truthVersion = '0.44'
     kodeinVersion = '6.4.1'
+//    kodeinVersion = '5.0.1'
 }

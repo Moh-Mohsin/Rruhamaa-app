@@ -120,10 +120,13 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "androidx.core:core-ktx:1.2.0"
 
     // KODE IN
     implementation "org.kodein.di:kodein-di-core:$kodeinVersion"
     implementation "org.kodein.di:kodein-di-erased:$kodeinVersion"
+//    implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
+//    implementation "org.kodein.di:kodein-di-framework-android:$kodeinVersion"
 
     // Architecture Components
     implementation "androidx.room:room-runtime:$roomVersion"
@@ -139,6 +142,9 @@ dependencies {
 
     // Image Loading
     implementation "io.coil-kt:coil:0.9.5"
+
+    // Serialization
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"

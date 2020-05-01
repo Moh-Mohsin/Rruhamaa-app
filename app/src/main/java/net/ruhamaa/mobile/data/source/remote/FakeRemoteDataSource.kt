@@ -9,15 +9,6 @@ import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.source.RuhamaDataSource
 
 class FakeRemoteDataSource : RuhamaDataSource {
-    override suspend fun login(phoneNum: String): Result.Success<Empty> {
-        delay(DELAY_IN_MS)
-        return successEmpty()
-    }
-
-    override suspend fun verify(phoneNum: String, code: String): Result.Success<User> {
-        delay(DELAY_IN_MS)
-        return Result.Success(User(phoneNum))
-    }
 
     override suspend fun forgotPassword(phoneNum: String): Result.Success<Empty> {
         delay(DELAY_IN_MS)
