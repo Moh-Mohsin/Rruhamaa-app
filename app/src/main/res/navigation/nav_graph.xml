@@ -35,5 +35,17 @@
             android:id="@+id/toLoginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/toCaseDetailFragment"
+            app:destination="@id/caseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/caseDetailFragment"
+        android:name="net.ruhamaa.mobile.ui.casedetail.CaseDetailFragment"
+        android:label="donation_progress"
+        tools:layout="@layout/donation_progress" >
+        <argument
+            android:name="caseId"
+            app:argType="string" />
     </fragment>
 </navigation>

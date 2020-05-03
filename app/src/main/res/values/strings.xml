@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ruhamaa</string>
+    <string name="app_name" translatable="false">Ruhamaa</string>
     <string name="phone_number">Phone Number</string>
     <string name="login">Login</string>
     <string name="confirmation_code">Confirmation Code</string>
@@ -12,4 +12,7 @@
     <string name="money_amount">%1$s \n pounds</string>
     <string name="case_list_fragment_label">Cases</string>
     <string name="logout">Logout</string>
+
+    <string name="case_description_label">Description</string>
+    <string name="donate_now">Donate now</string>
 </resources>

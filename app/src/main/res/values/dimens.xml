@@ -3,4 +3,9 @@
     <dimen name="header_height">192dp</dimen>
     <dimen name="header_padding">16dp</dimen>
     <dimen name="header_image_width">100dp</dimen>
+    <dimen name="toolbar_offset_start">4dp</dimen>
+    <dimen name="toolbar_offset_top">4dp</dimen>
+    <dimen name="toolbar_image_offset_top">4dp</dimen>
+    <dimen name="toolbar_collapsed_height">24dp</dimen>
+    <dimen name="case_image_size">120dp</dimen>
 </resources>

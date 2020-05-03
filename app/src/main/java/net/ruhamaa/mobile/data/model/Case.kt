@@ -10,5 +10,10 @@ data class Case(
         val donorsCount: Int,
         val shareCount: Int,
         val targetDonations: Double,
-        val currentDonations: Double
+        val currentDonations: Double,
+        val otherImages: List<Image>
+)
+data class Image(
+        val id: Int,
+        val url: String
 )

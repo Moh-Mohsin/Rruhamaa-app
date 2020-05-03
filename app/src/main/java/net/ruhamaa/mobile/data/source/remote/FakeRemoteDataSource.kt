@@ -6,6 +6,7 @@ import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
 import net.ruhamaa.mobile.data.toSuccess
 import net.ruhamaa.mobile.data.Result
+import net.ruhamaa.mobile.data.model.Image
 import net.ruhamaa.mobile.data.source.RuhamaDataSource
 
 class FakeRemoteDataSource : RuhamaDataSource {
@@ -51,7 +52,8 @@ fun genFakeCase(n: Int) = (1..n).map {
         it * 2,
         it * 4,
         it * 250.0,
-        it * 2 * 100.0
+        it * 2 * 100.0,
+        getFakeImages()
     )
 }
 
@@ -67,7 +69,8 @@ fun genFakeCase2() = listOf(
         50,
         230,
         4000.0,
-        2430.0
+        2430.0,
+        getFakeImages()
     ),
     Case(
         "2",
@@ -79,7 +82,8 @@ fun genFakeCase2() = listOf(
         8,
         50,
         500.0,
-        130.0
+        130.0,
+        getFakeImages()
     ),
     Case(
         "3",
@@ -91,10 +95,11 @@ fun genFakeCase2() = listOf(
         30,
         68,
         1650.0,
-        1500.0
+        1500.0,
+        getFakeImages()
     ),
     Case(
-        "3",
+        "4",
         "case 4",
         "Feed family of 15",
         "1/2/2020",
@@ -103,7 +108,8 @@ fun genFakeCase2() = listOf(
         1,
         5,
         850.0,
-        50.0
+        50.0,
+        getFakeImages()
     ),
     Case(
         "5",
@@ -115,6 +121,13 @@ fun genFakeCase2() = listOf(
         5,
         40,
         1650.0,
-        500.0
+        500.0,
+        getFakeImages()
     )
+)
+
+fun getFakeImages() = listOf(
+    Image(1, "file:///android_asset/case_image_1.jpg"),
+    Image(2, "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg"),
+    Image(3, "file:///android_asset/case_image_3.png")
 )

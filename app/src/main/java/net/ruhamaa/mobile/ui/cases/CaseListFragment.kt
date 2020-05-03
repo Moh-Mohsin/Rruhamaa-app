@@ -36,7 +36,9 @@ class CaseListFragment : Fragment() {
             return
         }
         val adapter = CaseListAdapter { case ->
-            toast("$case")
+            val direction = CaseListFragmentDirections.toCaseDetailFragment(case.id)
+            findNavController().navigate(direction)
+//            toast("$case")
         }
 
         binding.caseList.layoutManager = LinearLayoutManager(requireContext())

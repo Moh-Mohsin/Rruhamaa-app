@@ -30,9 +30,10 @@ class CaseViewModel : ViewModel() {
 
     fun setCaseId(id: String) {
         _id = id
+        loadCase()
     }
 
-    fun loadCase(){
+    private fun loadCase(){
         viewModelScope.launch {
             _loading.value = true
             val result = _id?.let { getCaseUseCase(it) } ?: throw IllegalStateException("caseId not set")
