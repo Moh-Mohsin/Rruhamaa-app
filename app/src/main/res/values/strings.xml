@@ -16,4 +16,6 @@
 
     <string name="case_description_label">Description</string>
     <string name="donate_now">Donate now</string>
+    <string name="ruhamaa_title">Ruhamaa</string>
+    <string name="case_start_date">Start Date of campaign: 25/01/2020</string>
 </resources>

@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import net.ruhamaa.mobile.R
 import net.ruhamaa.mobile.data.model.Image
 import net.ruhamaa.mobile.databinding.FragmentCaseDetailBinding
@@ -50,7 +51,10 @@ class CaseDetailFragment : Fragment() {
         }
 
 
-        binding.collapsingToolbar.title = "Feeding a family of 15"
+        binding.collapsingToolbar.apply {
+            setCollapsedTitleTextAppearance(R.style.CollapsedAppBar)
+            setExpandedTitleTextAppearance(R.style.ExpandedAppBar)
+        }
         val adapter = ImageListAdapter {
 
         }
@@ -60,7 +64,9 @@ class CaseDetailFragment : Fragment() {
         binding.imageList.layoutManager = linearLayoutManager
         caseDetailViewModel.setCaseId(caseId)
         caseDetailViewModel.case.observe(viewLifecycleOwner, Observer { case ->
+            binding.image.load(case.imgUrl)
             binding.collapsingToolbar.title = case.title
+            binding.caseDescription.text = case.description
             // TODO: format double (.2f)
             binding.donationProgress.current.text = getString(R.string.money_amount, case.currentDonations.toString())
             binding.donationProgress.target.text = getString(R.string.money_amount, case.targetDonations.toString())

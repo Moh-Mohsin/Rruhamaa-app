@@ -128,6 +128,7 @@ fun genFakeCase2() = listOf(
 
 fun getFakeImages() = listOf(
     Image(1, "file:///android_asset/case_image_1.jpg"),
-    Image(2, "https://live.staticflickr.com/7553/15199758144_bc9194b189_b.jpg"),
-    Image(3, "file:///android_asset/case_image_3.png")
+    Image(2, "file:///android_asset/case_image_2.jpg"),
+    Image(4, "file:///android_asset/case_image_4.jpeg"),
+    Image(5, "file:///android_asset/case_image_5.jpeg")
 )

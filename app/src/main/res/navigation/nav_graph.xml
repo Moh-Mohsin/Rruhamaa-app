@@ -24,7 +24,8 @@
             app:argType="string" />
         <action
             android:id="@+id/toCaseListFragment"
-            app:destination="@id/caseListFragment" />
+            app:destination="@id/caseListFragment"
+            app:popUpTo="@id/nav_graph" />
         <argument
             android:name="otp"
             app:argType="string" />

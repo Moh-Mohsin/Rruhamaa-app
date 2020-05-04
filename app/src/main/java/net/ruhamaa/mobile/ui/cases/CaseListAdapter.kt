@@ -39,7 +39,7 @@ class CaseListAdapter(private val onCaseClicked: (Case) -> Unit) :
                 val rnd = 5f
                 transformations(RoundedCornersTransformation(rnd, rnd, rnd, rnd))
             }
-            binding.description.text = case.description
+            binding.title.text = case.title
             binding.currentDonations.text =
                 context.getString(R.string.money_amount, case.currentDonations.toString())
             binding.targetDonations.text =

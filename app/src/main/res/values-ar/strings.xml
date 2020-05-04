@@ -2,8 +2,8 @@
 <resources>
     <string name="phone_number">رقم الهاتف</string>
     <string name="login">تسجيل الدخول</string>
-    <string name="confirmation_code">Confirmation Code</string>
-    <string name="verify">Verify</string>
+    <string name="confirmation_code">رمز التحقق</string>
+    <string name="verify">تحقق</string>
     <string name="ruhamaa_header_image_content_description">Ruhamaa header image</string>
     <string name="navigation_view_header_title">Ruhamaa</string>
     <string name="cases">الحالات</string>
@@ -15,4 +15,6 @@
     <string name="logout">تسجيل الخروج</string>
     <string name="case_description_label">وصف الحالة</string>
     <string name="donate_now">تبرع الأن</string>
+    <string name="ruhamaa_title">رحماء</string>
+    <string name="case_start_date">تاؤيخ بداية الحملة: 25/01/2020</string>
 </resources>
