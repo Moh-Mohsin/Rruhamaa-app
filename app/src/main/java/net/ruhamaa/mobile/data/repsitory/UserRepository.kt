@@ -4,15 +4,15 @@ import kotlinx.coroutines.flow.Flow
 import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
+import net.ruhamaa.mobile.data.source.remote.responses.LoginResponse
 
 // TODO: break into specific repositories based on use-cases
 interface UserRepository {
-    suspend fun login(phoneNum: String): Result<Empty>
+    suspend fun login(phoneNum: String): Result<LoginResponse>
 
     suspend fun verify(phoneNum: String, code: String): Result<User>
 
-    suspend fun resendCode(phoneNum: String): Result<Empty>
-
+    suspend fun resendCode(phoneNum: String): Result<LoginResponse>
 
 
     suspend fun forgotPassword(phoneNum: String): Result<Empty>

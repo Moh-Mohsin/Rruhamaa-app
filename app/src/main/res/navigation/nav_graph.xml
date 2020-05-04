@@ -25,6 +25,9 @@
         <action
             android:id="@+id/toCaseListFragment"
             app:destination="@id/caseListFragment" />
+        <argument
+            android:name="otp"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/caseListFragment"

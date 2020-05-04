@@ -11,7 +11,11 @@ import net.ruhamaa.mobile.data.source.RuhamaDataSource
 import net.ruhamaa.mobile.data.source.UserDataSource
 import net.ruhamaa.mobile.data.source.local.LocalUserDataSource
 import net.ruhamaa.mobile.data.source.remote.FakeRemoteDataSource
+import net.ruhamaa.mobile.data.source.remote.FakeRemoteUserDataSource
+import net.ruhamaa.mobile.data.source.remote.RemoteDataSource
 import net.ruhamaa.mobile.data.source.remote.RemoteUserDataSource
+import net.ruhamaa.mobile.data.source.remote.network.RuhamaaApi
+import net.ruhamaa.mobile.data.source.remote.network.RuhamaaService
 import net.ruhamaa.mobile.domain.GetCaseUseCase
 import net.ruhamaa.mobile.domain.GetCasesUseCase
 import net.ruhamaa.mobile.domain.LoginUseCase
@@ -45,10 +49,16 @@ val KodeinInjector = Kodein {
      * DataSources
      */
 //    bind<NetworkChecker>() with provider { NetworkChecker() }
-    bind<RuhamaDataSource>() with singleton { FakeRemoteDataSource() }
+    bind<RuhamaDataSource>() with singleton { RemoteDataSource(instance()) }
     bind<UserDataSource>("local") with singleton { LocalUserDataSource(instance()) }
-    bind<UserDataSource>("remote") with singleton { RemoteUserDataSource() }
+    bind<UserDataSource>("remote") with singleton { RemoteUserDataSource(instance()) }
     bind<SharedPreferences>() with singleton { RuhamaaApplication.sharedPreferences } // TODO: this is a hack, fix later
+
+
+    /**
+     * NETWORK API
+     */
+    bind<RuhamaaApi>() with singleton { RuhamaaService().getService() }
 
     /**
      * Network

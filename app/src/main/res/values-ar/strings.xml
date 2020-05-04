@@ -10,6 +10,7 @@
     <string name="content_icon">icon</string>
     <string name="content_icon_background">icon background</string>
     <string name="money_amount">%1$s \n جنيه</string>
+    <string name="remaining_money_amount">المتبقى %1$s جنيه</string>
     <string name="case_list_fragment_label">الحالات</string>
     <string name="logout">تسجيل الخروج</string>
     <string name="case_description_label">وصف الحالة</string>

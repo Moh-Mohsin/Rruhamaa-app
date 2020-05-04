@@ -8,6 +8,7 @@ import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
 import net.ruhamaa.mobile.data.source.UserDataSource
+import net.ruhamaa.mobile.data.source.remote.responses.LoginResponse
 import net.ruhamaa.mobile.data.toSuccess
 import java.lang.Exception
 
@@ -16,7 +17,7 @@ class LocalUserDataSource(private val preferences: SharedPreferences) : UserData
     private val userType = object :
         TypeToken<User>() {}.type
 
-    override suspend fun login(phoneNum: String): Result<Empty> {
+    override suspend fun login(phoneNum: String): Result<LoginResponse> {
         TODO("Not yet implemented")
     }
 

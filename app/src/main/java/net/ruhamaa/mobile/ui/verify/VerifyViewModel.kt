@@ -23,8 +23,8 @@ class VerifyViewModel : ViewModel() {
     private val _navigateToMain = MutableLiveData<Event<User>>()
     val navigateToMain = _navigateToMain.readOnly()
 
-    private val _snackbarText = MutableLiveData<Event<Message>>()
-    val snackbarText = _snackbarText.readOnly()
+    private val _message = MutableLiveData<Event<Message>>()
+    val message = _message.readOnly()
 
     fun verify(phoneNum: String, code: String){
         viewModelScope.launch {
@@ -34,7 +34,7 @@ class VerifyViewModel : ViewModel() {
                     _user.value = result.data
                 }
                 is Error -> {
-                    _snackbarText.value = Event(result.toErrorMessage())
+                    _message.value = Event(result.toErrorMessage())
                 }
             }
         }

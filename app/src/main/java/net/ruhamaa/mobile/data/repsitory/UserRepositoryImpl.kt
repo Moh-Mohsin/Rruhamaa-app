@@ -8,6 +8,7 @@ import net.ruhamaa.mobile.data.dataOrNull
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
 import net.ruhamaa.mobile.data.source.UserDataSource
+import net.ruhamaa.mobile.data.source.remote.responses.LoginResponse
 
 class UserRepositoryImpl(
     private val localUserDataSource: UserDataSource,
@@ -21,7 +22,7 @@ class UserRepositoryImpl(
     }
 
 
-    override suspend fun login(phoneNum: String): Result<Empty> {
+    override suspend fun login(phoneNum: String): Result<LoginResponse> {
         return remoteUserDataSource.login(phoneNum)
     }
 
@@ -33,7 +34,7 @@ class UserRepositoryImpl(
         return result
     }
 
-    override suspend fun resendCode(phoneNum: String): Result<Empty> {
+    override suspend fun resendCode(phoneNum: String): Result<LoginResponse> {
         return remoteUserDataSource.login(phoneNum)
     }
 

@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import net.ruhamaa.mobile.EventObserver
 import net.ruhamaa.mobile.R
+import net.ruhamaa.mobile.data.get
 import net.ruhamaa.mobile.databinding.LoginFragmentBinding
+import net.ruhamaa.mobile.util.toast
 
 class LoginFragment : Fragment() {
 
@@ -30,8 +31,11 @@ class LoginFragment : Fragment() {
             viewModel.login(binding.phoneNum.text.toString())
         }
         viewModel.navigateToVerify.observe(viewLifecycleOwner, EventObserver {
-            val action = LoginFragmentDirections.toVerifyFragment(it)
+            val action = LoginFragmentDirections.toVerifyFragment(it.phoneNum, it.otp)
             findNavController().navigate(action)
+        })
+        viewModel.message.observe(viewLifecycleOwner, EventObserver {
+            toast(it.get(requireContext()))
         })
     }
 

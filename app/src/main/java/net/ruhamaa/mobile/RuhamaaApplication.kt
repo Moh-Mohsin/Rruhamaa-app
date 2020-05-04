@@ -19,6 +19,7 @@ package net.ruhamaa.mobile
 import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import androidx.multidex.MultiDexApplication
 import net.ruhamaa.mobile.data.repsitory.RuhamaaRepository
 import timber.log.Timber
 import timber.log.Timber.DebugTree
@@ -29,7 +30,7 @@ import timber.log.Timber.DebugTree
  *
  * Also, sets up Timber in the DEBUG BuildConfig. Read Timber's documentation for production setups.
  */
-class RuhamaaApplication : Application() {
+class RuhamaaApplication : MultiDexApplication() {
 
     // Depends on the flavor,
 
