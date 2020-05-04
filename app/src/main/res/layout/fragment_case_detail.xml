@@ -43,6 +43,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="-20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <com.google.android.material.card.MaterialCardView
@@ -72,8 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:text="@string/case_start_date"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -99,25 +99,18 @@
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="30dp"
                     app:cardElevation="10dp"
+                    app:cardBackgroundColor="@color/green"
                     app:layout_constraintBottom_toBottomOf="@+id/donation_progress"
                     app:layout_constraintEnd_toEndOf="@+id/donation_progress"
                     app:layout_constraintStart_toStartOf="@+id/donation_progress"
                     app:layout_constraintTop_toBottomOf="@+id/donation_progress">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/green"
-                        app:layout_constraintTop_toBottomOf="@+id/donation_progress"
-                        tools:layout_editor_absoluteX="-6dp">
-
                         <TextView
                             android:id="@+id/remaining_to_target"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
+                            android:padding="10dp"
                             android:text="120 pounds remaining" />
-                    </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 

@@ -1,8 +1,10 @@
 package net.ruhamaa.mobile.util
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import net.ruhamaa.mobile.BuildConfig
@@ -38,3 +40,12 @@ fun Fragment.toastDebug(message: String, length: Int = Toast.LENGTH_SHORT) {
         context?.toast(message, length)
 }
 
+
+fun Activity.hideKeyboard() {
+    val inputMethodManager =getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0);
+}
+fun Fragment.hideKeyboard() {
+    val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0);
+}

@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         if (BuildConfig.DEBUG) {
             showAppSignature()
         }
-
+        hideActionBar()
     }
 
     override fun onResume() {
@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             in appBarConfiguration.topLevelDestinations -> {
                 showActionBar()
                 showNav()
+//                hideNav()
             }
             R.id.loginFragment, R.id.verifyFragment -> {
                 hideActionBar()

@@ -11,6 +11,7 @@ import net.ruhamaa.mobile.EventObserver
 import net.ruhamaa.mobile.R
 import net.ruhamaa.mobile.data.get
 import net.ruhamaa.mobile.databinding.VerifyFragmentBinding
+import net.ruhamaa.mobile.util.hideKeyboard
 import net.ruhamaa.mobile.util.toast
 
 class VerifyFragment : Fragment() {
@@ -37,6 +38,7 @@ class VerifyFragment : Fragment() {
             toast("Logged in! $it")
             val action = VerifyFragmentDirections.toCaseListFragment()
             findNavController().navigate(action)
+            hideKeyboard()
         })
         viewModel.message.observe(viewLifecycleOwner, EventObserver {
             toast(it.get(requireContext()))
