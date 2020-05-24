@@ -9,6 +9,16 @@
     app:layoutDescription="@xml/activity_splash_scene">
 
     <ImageView
+        android:id="@+id/money_tree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_money_tree" />
+
+    <ImageView
         android:id="@+id/hand_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,4 +38,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_dollar_transparent" />
+
+    <FrameLayout
+        android:id="@+id/logo_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.14999998">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/content_icon_background"
+            app:srcCompat="@drawable/ic_logo_w_name" />
+
+
+    </FrameLayout>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>

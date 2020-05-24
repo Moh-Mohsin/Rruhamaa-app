@@ -47,7 +47,7 @@ class RuhamaaService {
     private fun getGson() = Gson()
 
     companion object {
-        const val BASE_URL = "http://140.82.58.227:8080/ruhama/api/"
+        const val BASE_URL = "http://ruhama.cleverapps.io/ruhama/api/"
 
     }
 }

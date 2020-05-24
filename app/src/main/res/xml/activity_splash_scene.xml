@@ -13,6 +13,10 @@
                 app:motionTarget="@+id/hand_view"
                 app:framePosition="70"
                 app:percentY="1" />
+            <KeyAttribute
+                app:motionTarget="@+id/logo_frame"
+                app:framePosition="100"
+                android:alpha="1" />
         </KeyFrameSet>
     </Transition>
 
