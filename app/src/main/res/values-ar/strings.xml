@@ -17,4 +17,21 @@
     <string name="donate_now">تبرع الأن</string>
     <string name="ruhamaa_title">رحماء</string>
     <string name="case_start_date">تاريخ بداية الحملة: 25/01/2020</string>
+    <string name="balance">الرصيد</string>
+    <string name="transactions">المعاملات</string>
+    <string name="wallet">المحفظة</string>
+    <string name="amount">القيمة</string>
+    <string name="bank_account_number">رقم حساب البنك</string>
+    <string name="bank_branch">فرع البنك</string>
+    <string name="transaction_number">رقم الإيصال</string>
+    <string name="notes">ملاحظات</string>
+    <string name="deposit">ايداع في المحفظة</string>
+    <string name="error_no_image_selected">لم يتم إختيار صورة</string>
+    <string name="image_removed">تم إزالة الصورة الملحقة</string>
+    <string name="error_incomplete_fields">الرجاء تعبئة كل الحقول المطلوبة</string>
+    <string name="donation_successful">تم التبرع بنجاح</string>
+    <string name="ok">حسنا</string>
+    <string name="donate">تبرع</string>
+    <string name="error_invalid_amount">مبلغ غير صالح</string>
+    <string name="sudanese_pound">جنيه سوداني</string>
 </resources>

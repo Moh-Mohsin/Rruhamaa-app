@@ -49,3 +49,6 @@ fun Fragment.hideKeyboard() {
     val inputMethodManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0);
 }
+
+fun View.show(){ visibility = View.VISIBLE }
+fun View.hide(){ visibility = View.GONE }

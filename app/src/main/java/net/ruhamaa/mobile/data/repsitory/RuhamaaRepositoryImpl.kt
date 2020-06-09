@@ -1,11 +1,10 @@
 package net.ruhamaa.mobile.data.repsitory
 
 import net.ruhamaa.mobile.data.Result
-import net.ruhamaa.mobile.data.dataOrNull
+import net.ruhamaa.mobile.data.getOrNull
 import net.ruhamaa.mobile.data.model.Case
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.source.RuhamaDataSource
-import net.ruhamaa.mobile.data.source.remote.FakeRemoteDataSource
 import net.ruhamaa.mobile.data.source.remote.getFakeImages
 import net.ruhamaa.mobile.data.toSuccess
 import java.lang.Exception
@@ -15,7 +14,7 @@ class RuhamaaRepositoryImpl(private val ruhamaDataSource: RuhamaDataSource) : Ru
 
     override suspend fun getCases(forceUpdate: Boolean): Result<List<Case>> {
         val result = ruhamaDataSource.getCases()
-        result.dataOrNull()?.let { cases ->
+        result.getOrNull()?.let { cases ->
             cachedCases.clear()
             cachedCases.addAll(cases.map { it.copy(otherImages = getFakeImages()) })
         }

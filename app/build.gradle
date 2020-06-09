@@ -155,11 +155,19 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
-    // Image Loading
+    // Image Loading and picker
     implementation "io.coil-kt:coil:0.9.5"
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+//    implementation 'com.github.bumptech.glide:glide:4.11.0'
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'com.github.f0ris.sweetalert:library:1.6.2'
 
     // Serialization
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    // Viewpager
+    implementation 'com.duolingo.open:rtl-viewpager:2.0.0'
 
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"

@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
 
-    <style name="Base.Ruhamaa" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.Ruhamaa" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryVariant">@color/green</item>
@@ -70,7 +70,7 @@
     </style>
 
 
-    <style name="Ruhamaa.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="Ruhamaa.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 <!--        <item name="boxStrokeColor">@color/text_input_box_stroke</item>-->
 
     </style>

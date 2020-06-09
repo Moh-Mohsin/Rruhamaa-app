@@ -52,4 +52,17 @@
             android:name="caseId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="net.ruhamaa.mobile.ui.wallet.WalletFragment"
+        android:label="WalletFragment" >
+        <action
+            android:id="@+id/toDepositFragment"
+            app:destination="@id/depositFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="net.ruhamaa.mobile.ui.wallet.deposit.DepositFragment"
+        android:label="deposit_fragment"
+        tools:layout="@layout/deposit_fragment" />
 </navigation>

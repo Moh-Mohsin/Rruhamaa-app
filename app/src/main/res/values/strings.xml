@@ -18,4 +18,21 @@
     <string name="donate_now">Donate now</string>
     <string name="ruhamaa_title">Ruhamaa</string>
     <string name="case_start_date">Start Date of campaign: 25/01/2020</string>
+    <string name="balance">Balance</string>
+    <string name="transactions">Transactions</string>
+    <string name="wallet">Wallet</string>
+    <string name="amount">Amount</string>
+    <string name="bank_account_number">Bank Account Number</string>
+    <string name="bank_branch">Bank Branch</string>
+    <string name="transaction_number">Transaction Number</string>
+    <string name="notes">Notes</string>
+    <string name="deposit">Deposit</string>
+    <string name="error_no_image_selected">No Image selected</string>
+    <string name="image_removed">Attached Image removed</string>
+    <string name="error_incomplete_fields">Please fill all the necessary fields</string>
+    <string name="donation_successful">Doantion Successful!</string>
+    <string name="ok">ok</string>
+    <string name="donate">Donate</string>
+    <string name="error_invalid_amount">Invalid amount</string>
+    <string name="sudanese_pound">Sudanese Pound</string>
 </resources>

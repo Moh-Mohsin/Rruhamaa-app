@@ -11,28 +11,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.ruhamaa.mobile.EventObserver
 import net.ruhamaa.mobile.MainActivity
+import net.ruhamaa.mobile.R
 import net.ruhamaa.mobile.data.get
 import net.ruhamaa.mobile.databinding.CaseListFragmentBinding
 import net.ruhamaa.mobile.util.toast
+import sd.nctr.covid19sudan.util.viewBinding
 
-class CaseListFragment : Fragment() {
-    private var _binding: CaseListFragmentBinding? = null
-    private val binding get() = _binding!!
+class CaseListFragment : Fragment(R.layout.case_list_fragment) {
 
-    private lateinit var viewModel: CaseListViewModel
+
+    private val binding by viewBinding(CaseListFragmentBinding::bind)
+
+    private val viewModel by lazy { ViewModelProvider(this).get(CaseListViewModel::class.java) }
     private val userViewModel by lazy { (requireActivity() as MainActivity).userViewModel }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = CaseListFragmentBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (userViewModel.getUser() == null){
+        if (userViewModel.getUser() == null) {
             val direction = CaseListFragmentDirections.toLoginFragment()
             findNavController().navigate(direction)
             return
@@ -46,7 +41,6 @@ class CaseListFragment : Fragment() {
         binding.caseList.layoutManager = LinearLayoutManager(requireContext())
         binding.caseList.adapter = adapter
 
-        viewModel = ViewModelProvider(this).get(CaseListViewModel::class.java)
         viewModel.loadCases()
         viewModel.cases.observe(viewLifecycleOwner, Observer { cases ->
             adapter.submitList(cases)
@@ -55,10 +49,5 @@ class CaseListFragment : Fragment() {
         viewModel.message.observe(viewLifecycleOwner, EventObserver {
             toast(it.get(requireContext()))
         })
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -4,7 +4,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import net.ruhamaa.mobile.data.Result
-import net.ruhamaa.mobile.data.dataOrNull
+import net.ruhamaa.mobile.data.getOrNull
 import net.ruhamaa.mobile.data.model.Empty
 import net.ruhamaa.mobile.data.model.User
 import net.ruhamaa.mobile.data.source.UserDataSource
@@ -16,7 +16,7 @@ class UserRepositoryImpl(
 ) : UserRepository {
     val user: Flow<User?> = flow {
         while (true){
-            emit(localUserDataSource.getUser().dataOrNull())
+            emit(localUserDataSource.getUser().getOrNull())
             delay(1000)
         }
     }
@@ -28,7 +28,7 @@ class UserRepositoryImpl(
 
     override suspend fun verify(phoneNum: String, code: String): Result<User> {
         val result = remoteUserDataSource.verify(phoneNum, code)
-        result.dataOrNull()?.let { user ->
+        result.getOrNull()?.let { user ->
             localUserDataSource.updateUser(user)
         }
         return result
@@ -50,7 +50,7 @@ class UserRepositoryImpl(
 
     override suspend fun getUserFlow(): Flow<User?> = user
 
-    override fun getUser() = localUserDataSource.getUser().dataOrNull()
+    override fun getUser() = localUserDataSource.getUser().getOrNull()
 
     override suspend fun updateUser(user: User): Result<User> {
         TODO("Not yet implemented")
