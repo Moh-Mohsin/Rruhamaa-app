@@ -11,10 +11,7 @@ import net.ruhamaa.mobile.data.source.WalletDataSource
 import net.ruhamaa.mobile.data.source.fake.FakeDonationDataSource
 import net.ruhamaa.mobile.data.source.fake.FakeWalletDataSource
 import net.ruhamaa.mobile.data.source.local.LocalUserDataSource
-import net.ruhamaa.mobile.data.source.remote.FakeRemoteDataSource
-import net.ruhamaa.mobile.data.source.remote.FakeRemoteUserDataSource
-import net.ruhamaa.mobile.data.source.remote.RemoteDataSource
-import net.ruhamaa.mobile.data.source.remote.RemoteUserDataSource
+import net.ruhamaa.mobile.data.source.remote.*
 import net.ruhamaa.mobile.data.source.remote.network.RuhamaaApi
 import net.ruhamaa.mobile.data.source.remote.network.RuhamaaService
 import net.ruhamaa.mobile.domain.*
@@ -47,7 +44,7 @@ val KodeinInjector = Kodein {
     bind<RuhamaaRepository>() with singleton { RuhamaaRepositoryImpl(instance()) }
     bind<UserRepository>() with singleton { UserRepositoryImpl(instance("local"), instance("remote")) }
     bind<WalletRepository>() with singleton { WalletRepositoryImpl(instance()) }
-    bind<DonationRepository>() with singleton { DonationRepositoryImpl(instance()) }
+    bind<DonationRepository>() with singleton { DonationRepositoryImpl(instance(), instance(), instance()) }
 
     /**
      * DataSources
@@ -57,8 +54,8 @@ val KodeinInjector = Kodein {
     bind<UserDataSource>("local") with singleton { LocalUserDataSource(instance()) }
     bind<UserDataSource>("remote") with singleton { RemoteUserDataSource(instance()) }
     bind<SharedPreferences>() with singleton { RuhamaaApplication.sharedPreferences } // TODO: this is a hack, fix later
-    bind<WalletDataSource>() with singleton { FakeWalletDataSource() }
-    bind<DonationDataSource>() with singleton { FakeDonationDataSource(instance(), instance("local")) }
+    bind<WalletDataSource>() with singleton { RemoteWalletDataSource(instance(), instance()) }
+    bind<DonationDataSource>() with singleton { RemoteDonationDataSource(instance(), instance()) }
 
 
     /**

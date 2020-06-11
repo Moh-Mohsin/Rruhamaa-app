@@ -16,7 +16,7 @@ interface RuhamaDataSource {
 
     suspend fun getCases(): Result<List<Case>>
 
-    suspend fun getCase(id: String): Result<Case>
+    suspend fun getCase(id: Int): Result<Case>
 
     suspend fun addCase(case: Case): Result<Empty>
 

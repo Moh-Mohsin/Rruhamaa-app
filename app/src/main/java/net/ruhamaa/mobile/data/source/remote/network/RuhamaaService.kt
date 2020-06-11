@@ -1,6 +1,8 @@
 package net.ruhamaa.mobile.data.source.remote.network
 
+import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.squareup.moshi.Moshi
 import net.ruhamaa.mobile.BuildConfig
 import okhttp3.OkHttpClient
@@ -44,7 +46,10 @@ class RuhamaaService {
     private fun getMoshi(): Moshi {
         return Moshi.Builder().build()
     }
-    private fun getGson() = Gson()
+    private fun getGson() =
+        GsonBuilder()
+//            .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create()
 
     companion object {
         const val BASE_URL = "http://ruhama.cleverapps.io/ruhama/api/"

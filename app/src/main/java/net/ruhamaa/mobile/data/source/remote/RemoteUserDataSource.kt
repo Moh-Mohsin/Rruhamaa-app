@@ -16,7 +16,7 @@ class RemoteUserDataSource(private val ruhamaaApi: RuhamaaApi) : UserDataSource 
 
     override suspend fun login(phoneNum: String): Result<LoginResponse> {
         return withContext(Dispatchers.IO) {
-            val request = LoginRequest(phoneNum)
+            val request = LoginRequest(phoneNum, true) //TODO: remove agent later
             try {
                 val response = ruhamaaApi.login(request).execute()
                 if (response.isSuccessful) {

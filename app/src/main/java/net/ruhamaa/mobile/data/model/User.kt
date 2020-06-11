@@ -4,6 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 //TODO: map dtos to models instead later
 data class User(
-        @SerializedName("phoneNumber")
-        val phoneNum: String
+        val id: Int,
+        val fullName: String,
+        val phoneNum: String,
+        val walletId: Int
 )

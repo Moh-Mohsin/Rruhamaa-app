@@ -50,7 +50,7 @@ class DepositViewModel : ViewModel() {
                     _success.value = Event(true)
                 }
                 is Result.Error -> {
-                    _message.value = Event(Message.Raw(result.exception.toString()))
+                    _message.value = Event(Message.Raw(result.exception.message ?: result.exception.toString()))
                 }
             }
         }

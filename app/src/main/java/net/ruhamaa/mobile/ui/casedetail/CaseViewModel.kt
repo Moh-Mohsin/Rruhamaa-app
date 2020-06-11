@@ -21,7 +21,7 @@ class CaseViewModel : ViewModel() {
     private val getCaseUseCase by KodeinInjector.instance<GetCaseUseCase>()
     private val donateUseCase by KodeinInjector.instance<DonateUseCase>()
 
-    private var _id: String? = null
+    private var _id: Int? = null
 
     private val _case = MutableLiveData<Case>()
     val case = _case.toLive()
@@ -41,7 +41,7 @@ class CaseViewModel : ViewModel() {
     private val _dialog = MutableLiveData<Event<Message>>()
     val dialog = _dialog.toLive()
 
-    fun setCaseId(id: String) {
+    fun setCaseId(id: Int) {
         _id = id
         loadCase()
     }
@@ -56,7 +56,7 @@ class CaseViewModel : ViewModel() {
                     _case.value = result.data
                 }
                 is Result.Error -> {
-                    _message.value = Event(Message.Raw(result.exception.toString()))
+                    _message.value = Event(Message.Raw(result.exception.message ?: result.exception.toString()))
                 }
             }
         }
@@ -73,7 +73,7 @@ class CaseViewModel : ViewModel() {
                     _dialog.value = Event(Message.Res(R.string.donation_successful))
                 }
                 is Result.Error -> {
-                    _message.value = Event(Message.Raw(result.exception.toString()))
+                    _message.value = Event(Message.Raw(result.exception.message ?: result.exception.toString()))
                 }
             }
         }

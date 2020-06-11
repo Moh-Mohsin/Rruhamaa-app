@@ -50,7 +50,7 @@
         tools:layout="@layout/donation_progress" >
         <argument
             android:name="caseId"
-            app:argType="string" />
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/walletFragment"

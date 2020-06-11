@@ -22,7 +22,7 @@ class FakeRemoteDataSource : RuhamaDataSource {
 
     override suspend fun getCases() = fakeCases().toSuccess()
 
-    override suspend fun getCase(id: String) = fakeCases().single { it.id == id }.toSuccess()
+    override suspend fun getCase(id: Int) = fakeCases().single { it.id == id }.toSuccess()
 
     override suspend fun addCase(case: Case) = Result.Success(Empty())
 
@@ -35,7 +35,7 @@ class FakeRemoteDataSource : RuhamaDataSource {
 
 fun successEmpty() = Result.Success(Empty())
 
-fun fakeUser() = User("+999123456789")
+fun fakeUser() = User(1, "","+999123456789", 1)
 
 fun fakeCase() = fakeCases().single()
 
@@ -43,7 +43,7 @@ fun fakeCases() = genFakeCase2()
 
 fun genFakeCase(n: Int) = (1..n).map {
     Case(
-        "$it",
+        it,
         "case $it",
         "des",
         "1/1/2020",
@@ -60,7 +60,7 @@ fun genFakeCase(n: Int) = (1..n).map {
 
 fun genFakeCase2() = listOf(
     Case(
-        "1",
+        1,
         "case 1",
         "Feed family of 15",
         "1/1/2020",
@@ -73,7 +73,7 @@ fun genFakeCase2() = listOf(
         getFakeImages()
     ),
     Case(
-        "2",
+        2,
         "case 2",
         "Feed family of 15",
         "10/3/2020",
@@ -86,7 +86,7 @@ fun genFakeCase2() = listOf(
         getFakeImages()
     ),
     Case(
-        "3",
+        3,
         "case 3",
         "Feed family of 15",
         "1/1/2020",
@@ -99,7 +99,7 @@ fun genFakeCase2() = listOf(
         getFakeImages()
     ),
     Case(
-        "4",
+        4,
         "case 4",
         "Feed family of 15",
         "1/2/2020",
@@ -112,7 +112,7 @@ fun genFakeCase2() = listOf(
         getFakeImages()
     ),
     Case(
-        "5",
+        5,
         "case 5",
         "Feed family of 15",
         "21/1/2020",

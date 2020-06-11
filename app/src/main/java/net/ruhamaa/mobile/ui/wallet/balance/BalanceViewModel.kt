@@ -36,7 +36,7 @@ class BalanceViewModel : ViewModel() {
                     _balance.value = result.data
                 }
                 is Result.Error -> {
-                    _message.value = Event(Message.Raw(result.exception.toString()))
+                    _message.value = Event(Message.Raw(result.exception.message ?: result.exception.toString()))
                 }
             }
         }

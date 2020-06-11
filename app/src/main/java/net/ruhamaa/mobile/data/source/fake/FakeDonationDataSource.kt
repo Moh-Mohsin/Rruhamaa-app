@@ -21,23 +21,33 @@ class FakeDonationDataSource(
     var balance = 100
     override suspend fun donate(donationRequest: DonationRequest): Result<DonationDto> {
         return DonationDto(
+            1,
+            null,
+            donationRequest.case.id,
             donationRequest.amount,
+            null,
+            null,
+            donationRequest.case.id,
             donationRequest.info,
-            userDataSource.getUser().require().toUserDto(),
-            donationRequest.case.toCaseDto(),
+            null,
             getCurrentDateTime().format()
         ).toSuccess()
     }
 
     override suspend fun getDonations(): Result<List<DonationDto>> {
-        return (1..20).map { getFakeDonation() }.toSuccess()
+        return (1..20).map { getFakeDonation(it) }.toSuccess()
     }
 
-    private suspend fun getFakeDonation() = DonationDto(
+    private suspend fun getFakeDonation(id: Int) = DonationDto(
+        id,
+        null,
+        ruhamaDataSource.getCases().getOrNull()!!.random().id,
         (50..1000).random().toDouble(),
+        null,
+        null,
+        ruhamaDataSource.getCases().getOrNull()!!.random().id,
         "",
-        userDataSource.getUser().getOrNull()!!.toUserDto(),
-        ruhamaDataSource.getCases().getOrNull()!!.random().toCaseDto(),
+        null,
         getCurrentDateTime().format()
     )
 }

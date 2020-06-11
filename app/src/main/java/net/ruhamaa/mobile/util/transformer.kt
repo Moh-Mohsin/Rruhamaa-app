@@ -1,16 +1,11 @@
 package net.ruhamaa.mobile.util
 
-import net.ruhamaa.mobile.data.model.Case
-import net.ruhamaa.mobile.data.model.Donation
-import net.ruhamaa.mobile.data.model.Image
-import net.ruhamaa.mobile.data.model.User
-import net.ruhamaa.mobile.data.source.dto.CaseDto
-import net.ruhamaa.mobile.data.source.dto.DonationDto
-import net.ruhamaa.mobile.data.source.dto.ImageDto
-import net.ruhamaa.mobile.data.source.dto.UserDto
+import net.ruhamaa.mobile.data.model.*
+import net.ruhamaa.mobile.data.source.dto.*
+import net.ruhamaa.mobile.data.source.remote.requests.DonationRequest
 
-fun UserDto.toUser() = User(phoneNum)
-fun User.toUserDto() = UserDto(phoneNum)
+fun UserDto.toUser() = User(id, fullName, phoneNum, walletId)
+fun User.toUserDto() = UserDto(id, fullName, phoneNum, walletId)
 
 fun CaseDto.toCase() = Case(id, title, description, date, emergency, imgUrl, donorsCount,
     shareCount, targetDonations, currentDonations, otherImages?.map { it.toImage() })
@@ -20,6 +15,8 @@ fun Case.toCaseDto() = CaseDto(id, title, description, date, emergency, imgUrl, 
 fun ImageDto.toImage() = Image(id, url)
 fun Image.toImageDto() = ImageDto(id, url)
 
-fun DonationDto.toDonation() = Donation(amount, info, donorDto.toUser(), caseDto.toCase(), date)
-fun Donation.toDonationDto() = DonationDto(amount, info, donor.toUserDto(), case.toCaseDto(), date)
+fun DonationDto.toDonation(donor: User, case: Case?) = Donation(amount, info, donor, case, donationDate?: "")
+fun DonationRequest.toDonateDto(donor: User) = DonateDto(amount, case.id, donor.id, donor.id)
+
+fun TransactionDto.toTransaction() = Transaction(walletId, amount, operation, descrtption, fromDate, toDate, createdById)
 

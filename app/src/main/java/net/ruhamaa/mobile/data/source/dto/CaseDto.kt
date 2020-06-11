@@ -1,7 +1,7 @@
 package net.ruhamaa.mobile.data.source.dto
 
 data class CaseDto(
-        val id: String,
+        val id: Int,
         val title: String,
         val description: String,
         val date: String?,

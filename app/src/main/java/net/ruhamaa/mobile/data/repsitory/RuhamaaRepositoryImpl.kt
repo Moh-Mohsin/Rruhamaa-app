@@ -21,7 +21,7 @@ class RuhamaaRepositoryImpl(private val ruhamaDataSource: RuhamaDataSource) : Ru
         return if (cachedCases.isNotEmpty()) cachedCases.toSuccess() else result
     }
 
-    override suspend fun getCase(id: String, forceUpdate: Boolean): Result<Case> {
+    override suspend fun getCase(id: Int, forceUpdate: Boolean): Result<Case> {
         val case = cachedCases.singleOrNull { it.id == id }
         return case?.toSuccess() ?: Result.Error(Exception("case not found"))
     }

@@ -1,10 +1,12 @@
 package net.ruhamaa.mobile.data.repsitory
 
 import net.ruhamaa.mobile.data.Result
+import net.ruhamaa.mobile.data.map
 import net.ruhamaa.mobile.data.model.Balance
 import net.ruhamaa.mobile.data.model.Credit
 import net.ruhamaa.mobile.data.model.Transaction
 import net.ruhamaa.mobile.data.source.WalletDataSource
+import net.ruhamaa.mobile.util.toTransaction
 
 class WalletRepositoryImpl(private val walletDataSource: WalletDataSource) : WalletRepository {
     override suspend fun getBalance(): Result<Balance> {
@@ -18,5 +20,6 @@ class WalletRepositoryImpl(private val walletDataSource: WalletDataSource) : Wal
     override suspend fun getTransactions(forceUpdate: Boolean): Result<List<Transaction>> {
         // TODO: implement caching of transactions
         return walletDataSource.getTransactions()
-     }
+            .map { it.map { transactionDto -> transactionDto.toTransaction() } }
+    }
 }

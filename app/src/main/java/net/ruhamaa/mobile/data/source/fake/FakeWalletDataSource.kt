@@ -6,6 +6,7 @@ import net.ruhamaa.mobile.data.model.Balance
 import net.ruhamaa.mobile.data.model.Credit
 import net.ruhamaa.mobile.data.model.Transaction
 import net.ruhamaa.mobile.data.source.WalletDataSource
+import net.ruhamaa.mobile.data.source.dto.TransactionDto
 import net.ruhamaa.mobile.data.toSuccess
 
 class FakeWalletDataSource : WalletDataSource {
@@ -23,7 +24,7 @@ class FakeWalletDataSource : WalletDataSource {
         return Result.Success(balance)
     }
 
-    override suspend fun getTransactions(): Result<List<Transaction>> {
+    override suspend fun getTransactions(): Result<List<TransactionDto>> {
         delay(500)
         return transactions.toSuccess()
     }
@@ -31,7 +32,14 @@ class FakeWalletDataSource : WalletDataSource {
     private fun getCurrentBalance() = Balance(200.0)
 
     private fun getFakeTransactions() = listOf(
-        Transaction("350", "100 was added to your account", 1),
-        Transaction("150", "150 was spent from your account", 0)
+        TransactionDto(
+            1,
+            150.0,
+            0,
+            "150 was spent from your account",
+            null,
+            null,
+            1
+        )
     )
 }

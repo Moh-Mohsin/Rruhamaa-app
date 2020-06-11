@@ -4,8 +4,8 @@ import java.time.temporal.TemporalAmount
 
 data class Donation(
     val amount: Double,
-    val info: String,
+    val info: String?,
     val donor: User,
-    val case: Case,
+    val case: Case?,
     val date: String
 )

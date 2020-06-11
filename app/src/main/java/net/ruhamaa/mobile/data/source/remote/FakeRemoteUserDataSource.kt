@@ -16,7 +16,7 @@ class FakeRemoteUserDataSource : UserDataSource {
 
     override suspend fun verify(phoneNum: String, code: String): Result<User> {
         delay(FakeRemoteDataSource.DELAY_IN_MS)
-        return Result.Success(User(phoneNum))
+        return Result.Success(User(1, "", phoneNum, 1))
     }
 
     override fun getUser(): Result<User> {

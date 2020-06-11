@@ -3,7 +3,6 @@ package net.ruhamaa.mobile.data.repsitory
 import net.ruhamaa.mobile.data.Result
 import net.ruhamaa.mobile.data.model.Case
 import net.ruhamaa.mobile.data.model.Empty
-import net.ruhamaa.mobile.data.model.User
 
 // TODO: break into specific repositories based on use-cases
 interface RuhamaaRepository {
@@ -19,7 +18,7 @@ interface RuhamaaRepository {
 
     suspend fun getCases(forceUpdate: Boolean = false): Result<List<Case>>
 
-    suspend fun getCase(id: String, forceUpdate: Boolean = false): Result<Case>
+    suspend fun getCase(id: Int, forceUpdate: Boolean = false): Result<Case>
 
     suspend fun addCase(case: Case): Result<Empty>
 
