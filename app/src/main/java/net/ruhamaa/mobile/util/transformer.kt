@@ -18,5 +18,5 @@ fun Image.toImageDto() = ImageDto(id, url)
 fun DonationDto.toDonation(donor: User, case: Case?) = Donation(amount, info, donor, case, donationDate?: "")
 fun DonationRequest.toDonateDto(donor: User) = DonateDto(amount, case.id, donor.id, donor.id)
 
-fun TransactionDto.toTransaction() = Transaction(walletId, amount, operation, descrtption, fromDate, toDate, createdById)
+fun TransactionDto.toTransaction() = Transaction(walletId, amount, operation, descrtption, fromDate, toDate, createdById, createdAt)
 

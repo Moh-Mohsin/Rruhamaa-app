@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import net.ruhamaa.mobile.EventObserver
 import net.ruhamaa.mobile.R
 import net.ruhamaa.mobile.data.get
@@ -22,18 +23,24 @@ class TransactionsFragment : Fragment(R.layout.transactions_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val adapter = TransactionListAdapter()
+        binding.transactionList.layoutManager = LinearLayoutManager(requireContext())
+        binding.transactionList.adapter = adapter
+
         viewModel.loadTransactions()
+
+        viewModel.transactions.observe(viewLifecycleOwner, Observer { transactions ->
+            binding.transactionList.show()
+            adapter.submitList(transactions.reversed())
+        })
+
         viewModel.loading.observe(viewLifecycleOwner, Observer { loading ->
             if (loading) {
                 binding.loading.show()
-                binding.content.hide()
+                binding.transactionList.hide()
             } else {
                 binding.loading.hide()
             }
-        })
-        viewModel.transactions.observe(viewLifecycleOwner, Observer { transactions ->
-            binding.content.show()
-            toast(transactions.toString())
         })
 
         viewModel.message.observe(viewLifecycleOwner, EventObserver {

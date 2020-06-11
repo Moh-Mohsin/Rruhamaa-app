@@ -39,7 +39,8 @@ class FakeWalletDataSource : WalletDataSource {
             "150 was spent from your account",
             null,
             null,
-            1
+            1,
+            "11/6/2020"
         )
     )
 }

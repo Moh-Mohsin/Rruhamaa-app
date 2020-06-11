@@ -35,4 +35,6 @@
     <string name="donate">Donate</string>
     <string name="error_invalid_amount">Invalid amount</string>
     <string name="sudanese_pound">Sudanese Pound</string>
+    <string name="withdrawal">Withdrawal</string>
+    <string name="current_balance">Current Balance:</string>
 </resources>

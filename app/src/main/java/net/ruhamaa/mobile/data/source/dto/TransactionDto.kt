@@ -13,5 +13,7 @@ data class TransactionDto(
     @SerializedName("to_date")
     val toDate: String?,
     @SerializedName("created_by_id")
-    val createdById: Int
+    val createdById: Int,
+    @SerializedName("created_at")
+    val createdAt: String
 )

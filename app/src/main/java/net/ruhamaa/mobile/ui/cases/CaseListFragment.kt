@@ -41,7 +41,6 @@ class CaseListFragment : Fragment(R.layout.case_list_fragment) {
         binding.caseList.layoutManager = LinearLayoutManager(requireContext())
         binding.caseList.adapter = adapter
 
-        viewModel.loadCases()
         viewModel.cases.observe(viewLifecycleOwner, Observer { cases ->
             adapter.submitList(cases)
         })
@@ -49,5 +48,10 @@ class CaseListFragment : Fragment(R.layout.case_list_fragment) {
         viewModel.message.observe(viewLifecycleOwner, EventObserver {
             toast(it.get(requireContext()))
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadCases()
     }
 }

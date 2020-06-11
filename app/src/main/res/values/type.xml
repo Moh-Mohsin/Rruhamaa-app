@@ -31,20 +31,16 @@
     <style name="TextAppearance.Ruhamaa.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/segoeuib</item>
         <item name="android:textStyle">bold</item>
-<!-- TODO: check why this is not working       <item name="android:textColor">?android:attr/textColorPrimary</item>-->
-        <item name="android:textColor">@color/white</item>
         <item name="lineHeight">40sp</item>
     </style>
 
     <style name="TextAppearance.Ruhamaa.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/segoeuib</item>
-        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.Ruhamaa.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/seguisb</item>
-        <item name="android:textColor">@color/white</item>
         <item name="lineHeight">28sp</item>
     </style>
 

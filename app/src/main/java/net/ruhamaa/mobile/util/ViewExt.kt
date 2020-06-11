@@ -1,7 +1,10 @@
 package net.ruhamaa.mobile.util
 
+import android.content.Context
 import android.view.View
+import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -63,3 +66,5 @@ fun Fragment.setupRefreshLayout(
         refreshLayout.scrollUpChild = it
     }
 }
+
+fun Context.getColorCompact(@ColorRes id: Int) = ResourcesCompat.getColor(resources, id, null)

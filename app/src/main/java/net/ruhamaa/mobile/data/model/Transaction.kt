@@ -7,5 +7,6 @@ data class Transaction(
     val descrtption: String,
     val fromDate: String?,
     val toDate: String?,
-    val createdById: Int
+    val createdById: Int,
+    val createdAt: String
 )

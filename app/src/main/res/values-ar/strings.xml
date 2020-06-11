@@ -34,4 +34,6 @@
     <string name="donate">تبرع</string>
     <string name="error_invalid_amount">مبلغ غير صالح</string>
     <string name="sudanese_pound">جنيه سوداني</string>
+    <string name="withdrawal">سحب من المحفظة</string>
+    <string name="current_balance">رصيدك الحالي:</string>
 </resources>

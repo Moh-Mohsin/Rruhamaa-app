@@ -36,7 +36,7 @@ class DepositFragment : Fragment(R.layout.deposit_fragment) {
             .returnMode(ReturnMode.ALL)
             .single()
         binding.addImage.setOnClickListener {
-            imagePicker.start()
+//            imagePicker.start()
         }
         binding.imageName.setOnClickListener {
             compressedImagePath = null
